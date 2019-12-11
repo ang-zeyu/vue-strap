@@ -1,14 +1,20 @@
 <template>
     <div class="alert container" :class="[boxStyle, addClass, {'alert-dismissible': dismissible}]" :style="customStyle">
-        <div class="icon-wrapper" v-if="!isDefault">
-            <span v-html="iconType"></span>
+
+        <h6 v-if="heading" class="headingDefault">{{ heading }}</h6>
+        <div v-if="!heading" class="headingNotPresent"></div>
+
+        <div class="contentContainer">
+            <div v-if="!isDefault" class="icon-wrapper">
+                <span v-html="iconType"></span>
+            </div>
+            <div class="contents">
+                <slot></slot>
+            </div>
+            <button v-if="dismissible" type="button" class="close closeButton" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <div class="contents">
-            <slot></slot>
-        </div>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close" v-if="dismissible">
-          <span aria-hidden="true">&times;</span>
-        </button>
     </div>
 </template>
 
@@ -47,6 +53,10 @@
       addClass: {
         type: String,
         default: ''
+      },
+      heading: {
+        type: String,
+        default: null,
       }
     },
     computed: {
@@ -116,10 +126,43 @@
 
 <style scoped>
     .container {
-        display: flex;
-        flex-direction: row;
         width: 100%;
         border-radius: 6px;
+        padding: 0;
+    }
+
+    .headingDefault {
+        display: inline-block;
+        color: inherit;
+        float: right;
+        width: auto;
+        padding: 2px 3px 3px 4px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: inherit;
+        border-radius: 0 6px 0 6px;
+        margin-top: -1px;
+        margin-right: -1px;
+        margin-bottom: 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .headingNotPresent {
+        margin-bottom: 15px;
+    }
+
+    .contentContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        padding: 0 15px 15px 15px;
+        margin: 0;
+    }
+
+    .alert-dismissible .closeButton {
+        top: auto;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .icon-wrapper {
