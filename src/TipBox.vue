@@ -83,21 +83,21 @@
       },
       lightStyle() {
         if (this.light) {
-            switch (this.type) {
+          switch (this.type) {
             case 'warning':
-                return 'border-warning text-warning alert-border-left';
+              return 'border-warning text-warning alert-border-left';
             case 'info':
             case 'definition':
-                return 'border-info text-info alert-border-left';
+              return 'border-info text-info alert-border-left';
             case 'success':
             case 'tip':
-                return 'border-sucess text-success alert-border-left';
+              return 'border-success text-success alert-border-left';
             case 'important':
             case 'wrong':
-                return 'border-danger text-danger alert-border-left';
+              return 'border-danger text-danger alert-border-left';
             default:
-                return '';
-            }
+              return '';
+          }
         }
         return '';
       },
@@ -202,6 +202,7 @@
     
     .alert-border-left {
         background-color: #f9f8f8;
+        background-image: none;
         border-left: solid;
         border-width: 0px 0px 0px 5px;
     }
