@@ -17,6 +17,7 @@ import tipBox from './TipBox.vue'
 import tooltip from './Tooltip.vue'
 import trigger from './trigger.vue'
 import typeahead from './Typeahead.vue'
+import versions from './Versions.vue'
 
 const components = {
   affix,
@@ -38,6 +39,7 @@ const components = {
   tooltip,
   trigger,
   typeahead,
+  versions,
 }
 
 const directives = {
