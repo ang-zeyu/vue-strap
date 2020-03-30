@@ -124,7 +124,7 @@ export default {
 <style scoped>
     .card-collapse {
         overflow: hidden;
-        transition: max-height 0.7s ease-in-out;
+        transition: max-height 0.5s ease-in-out;
     }
 </style>
 
