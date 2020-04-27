@@ -4,6 +4,7 @@ build/
 npm-debug.log
 static
 build
+coverage
 .idea
 
 vue-strap.sublime-project
